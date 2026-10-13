@@ -1,0 +1,120 @@
+.navbar {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbarContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.logo h1:hover {
+  opacity: 0.8;
+}
+
+.userSection {
+  position: relative;
+}
+
+.userMenu {
+  position: relative;
+}
+
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  transition: background-color var(--transition-fast);
+}
+
+.userButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.userName {
+  font-weight: 600;
+}
+
+.userRole {
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+  display: none;
+}
+
+.menuToggle {
+  font-size: var(--font-size-sm);
+  transition: transform var(--transition-fast);
+}
+
+.userButton:hover .menuToggle {
+  transform: scaleY(1.2);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--spacing-sm);
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 150px;
+  overflow: hidden;
+  z-index: 101;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-md);
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--dark-gray);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.dropdownItem:hover {
+  background-color: var(--light-gray);
+}
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .logo h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .userRole {
+    display: inline;
+  }
+}

@@ -1,0 +1,146 @@
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+.header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.header h1 {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-3xl);
+  color: var(--primary-color);
+}
+
+.header p {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  color: var(--medium-gray);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.statContent {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--secondary-color);
+  line-height: 1;
+}
+
+.statLabel {
+  margin-top: var(--spacing-md);
+  font-size: var(--font-size-base);
+  color: var(--dark-gray);
+}
+
+.centerContent {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+}
+
+.errorMessage {
+  background-color: #fadbd8;
+  border: 1px solid #f5b7b1;
+  color: #78281f;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--medium-gray);
+}
+
+.caseList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.caseRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: var(--spacing-lg);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+}
+
+.caseRow:hover {
+  background-color: #fafafa;
+  border-color: var(--secondary-color);
+}
+
+.caseInfo {
+  flex: 1;
+}
+
+.caseInfo h4 {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-lg);
+  color: var(--primary-color);
+}
+
+.clientName {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+}
+
+.caseAction {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: var(--spacing-lg);
+  }
+
+  .header h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseRow {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .caseAction {
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,225 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.header h1 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-2xl);
+  color: var(--primary-color);
+}
+
+.headerMeta {
+  display: flex;
+  gap: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--medium-gray);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--spacing-2xl);
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.description {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--dark-gray);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.classificationResult {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background-color: #f0f7ff;
+  border-radius: var(--border-radius-md);
+  border: 1px solid #e0eeff;
+}
+
+.issueType {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: var(--spacing-md);
+  text-transform: capitalize;
+}
+
+.classificationResult p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+}
+
+.pending {
+  color: var(--medium-gray);
+  font-style: italic;
+}
+
+.summaryContent {
+  font-size: var(--font-size-base);
+  color: var(--dark-gray);
+  line-height: 1.8;
+}
+
+.summaryContent p {
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.keyPhrases {
+  margin-top: var(--spacing-lg);
+}
+
+.keyPhrases h4 {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-base);
+  color: var(--primary-color);
+}
+
+.phraseList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.phrase {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--light-gray);
+  border: 1px solid var(--medium-gray);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.timelineItem {
+  display: flex;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.timelineItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.timelineMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--success-color);
+  color: var(--white);
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+.timelineItem strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--primary-color);
+}
+
+.timelineItem p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--medium-gray);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+.statusDetail {
+  text-align: center;
+}
+
+.statusDetail p {
+  margin: var(--spacing-md) 0 0 0;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+}
+
+.lawyerInfo {
+  text-align: center;
+}
+
+.lawyerInfo p {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.errorContainer {
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+.errorMessage {
+  background-color: #fadbd8;
+  border: 1px solid #f5b7b1;
+  color: #78281f;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header h1 {
+    font-size: var(--font-size-xl);
+  }
+}

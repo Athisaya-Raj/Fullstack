@@ -1,0 +1,267 @@
+================================================================================
+                    JURISLINK - QUICK START GUIDE
+================================================================================
+
+PROJECT STATUS: ✅ Backend Complete | Frontend Needs Integration
+LAST UPDATED: September 3, 2026
+
+================================================================================
+                              5-MINUTE SETUP
+================================================================================
+
+1. BACKEND SETUP
+   cd backend
+   cp .env.example .env
+   pip install -r requirements.txt
+   python -m uvicorn app.main:app --reload --port 8000
+
+2. FRONTEND SETUP (in new terminal)
+   cd frontend
+   npm install
+   npm run dev
+
+3. MONGODB
+   mongod (in another terminal)
+
+4. VERIFY
+   Backend:  http://localhost:8000/docs (Swagger UI)
+   Frontend: http://localhost:3000
+   Test Login: test@example.com / password123
+
+================================================================================
+                            KEY DOCUMENTATION
+================================================================================
+
+📖 PROJECT.md
+   ➜ Comprehensive guide
+   ➜ Architecture details
+   ➜ All 17+ API endpoints
+   ➜ How to add features
+   ➜ Troubleshooting
+
+📋 CLEANUP_SUMMARY.md
+   ➜ What was cleaned up
+   ➜ File organization
+   ➜ Current structure
+
+📄 README.md
+   ➜ Original project overview
+   ➜ Tech stack details
+   ➜ Naming conventions
+
+================================================================================
+                            USEFUL COMMANDS
+================================================================================
+
+Backend:
+  python -m uvicorn app.main:app --reload           # Start with hot reload
+  python -m uvicorn app.main:app --port 8001        # Different port
+
+Frontend:
+  npm run dev                                        # Start dev server
+  npm run build                                      # Build for production
+  npm run preview                                    # Preview build
+
+Database:
+  mongod                                             # Start MongoDB
+  mongosh                                            # Connect to MongoDB
+  use jurislink                                      # Select database
+  db.users.find()                                    # View users collection
+
+================================================================================
+                            API ENDPOINTS
+================================================================================
+
+Health:
+  GET /health/status                    → Check system status
+
+Auth:
+  POST /auth/signup                     → Register new user
+  POST /auth/login                      → Get JWT token
+  GET /auth/me                          → Get current user
+
+Cases:
+  POST /cases                           → Create case (auto-classified!)
+  GET /cases/{id}                       → Get case details
+  GET /cases/me                         → List your cases
+  PATCH /cases/{id}/status              → Update case status
+  POST /cases/{id}/assign               → Assign case to lawyer
+
+Appointments:
+  POST /appointments                    → Book appointment (detects conflicts!)
+  GET /appointments/{id}                → Get appointment
+  GET /appointments/me                  → List your appointments
+  PATCH /appointments/{id}              → Reschedule
+  POST /appointments/{id}/cancel        → Cancel
+
+Try them all: http://localhost:8000/docs
+
+================================================================================
+                            ENVIRONMENT VARIABLES
+================================================================================
+
+Backend (.env):
+  MONGODB_URI=mongodb://localhost:27017
+  DATABASE_NAME=jurislink
+  JWT_SECRET=dev-secret-key
+  ACCESS_TOKEN_EXPIRE_MINUTES=30
+  BACKEND_PORT=8000
+  BACKEND_HOST=0.0.0.0
+  FRONTEND_URL=http://localhost:3000
+
+Frontend (.env):
+  VITE_API_URL=http://localhost:8000
+
+================================================================================
+                            TROUBLESHOOTING
+================================================================================
+
+Backend won't start?
+  → Check MongoDB is running (mongod)
+  → Check .env file exists
+  → Check port 8000 is free
+
+Frontend can't connect?
+  → Verify backend running on localhost:8000
+  → Check frontend .env VITE_API_URL
+  → Check CORS in backend config
+
+Database disconnected?
+  → Verify MongoDB running
+  → Check MONGODB_URI in .env
+  → Try: mongosh to test connection
+
+Stuck?
+  → Read PROJECT.md (comprehensive guide)
+  → Check troubleshooting section
+  → Verify all prerequisites installed
+
+================================================================================
+                            PROJECT STRUCTURE
+================================================================================
+
+jurislink/
+├── README.md              # Main project overview
+├── PROJECT.md             # ⭐ MAIN GUIDE (read this first)
+├── QUICK_START.txt        # This file
+├── CLEANUP_SUMMARY.md     # Cleanup report
+│
+├── backend/
+│   ├── app/
+│   │   ├── main.py        # FastAPI entry
+│   │   ├── core/          # Security & config
+│   │   ├── models/        # Data schemas
+│   │   ├── routers/       # API endpoints
+│   │   └── services/      # Business logic
+│   ├── requirements.txt
+│   ├── .env.example
+│   └── .env
+│
+└── frontend/
+    ├── src/
+    │   ├── components/    # React components
+    │   ├── pages/         # Page routes
+    │   ├── services/      # API calls
+    │   └── styles/        # CSS files
+    ├── package.json
+    ├── vite.config.js
+    └── .env
+
+================================================================================
+                            DEVELOPMENT WORKFLOW
+================================================================================
+
+To Add a New Feature:
+
+1. Create model: backend/app/models/feature_model.py
+2. Create service: backend/app/services/feature_service.py
+3. Create router: backend/app/routers/feature_router.py
+4. Register router in: backend/app/main.py
+5. Create service wrapper: frontend/src/services/featureService.js
+6. Create React component: frontend/src/components/FeatureForm.jsx
+
+Full details: Read PROJECT.md → Development Guide
+
+================================================================================
+                            TESTING ENDPOINTS
+================================================================================
+
+Using cURL:
+
+  # Health check
+  curl http://localhost:8000/health/status
+
+  # Sign up
+  curl -X POST http://localhost:8000/auth/signup \
+    -H "Content-Type: application/json" \
+    -d '{"email":"test@example.com","full_name":"Test","password":"pass123","role":"client"}'
+
+  # Login
+  curl -X POST http://localhost:8000/auth/login \
+    -H "Content-Type: application/json" \
+    -d '{"email":"test@example.com","password":"pass123"}'
+
+Using Swagger UI:
+  → Visit http://localhost:8000/docs
+  → Click endpoint
+  → Click "Try it out"
+  → Enter parameters
+  → Click "Execute"
+
+================================================================================
+                            STATUS & TIMELINE
+================================================================================
+
+Completed ✅
+  → Backend API (17+ endpoints)
+  → Database schema & indexes
+  → Authentication & JWT
+  → API documentation
+
+In Progress ⏳
+  → Frontend API integration
+  → Form validation
+  → Case management UI
+  → Appointment booking UI
+
+Coming Soon 🔮
+  → ML model training
+  → Document classification
+  → Email notifications
+  → Admin dashboard
+
+================================================================================
+                            USEFUL LINKS
+================================================================================
+
+API Documentation:        http://localhost:8000/docs
+Frontend App:             http://localhost:3000
+MongoDB Connection:       localhost:27017
+
+Documentation Files:
+  PROJECT.md              → Comprehensive guide
+  README.md               → Project overview
+  CLEANUP_SUMMARY.md      → What was cleaned up
+  QUICK_START.txt         → This file
+
+================================================================================
+                            NEXT STEPS
+================================================================================
+
+1. Read PROJECT.md for complete understanding
+2. Run setup commands above
+3. Test backend at /docs
+4. Test frontend at localhost:3000
+5. Integrate frontend with backend API
+6. Build features using development workflow
+
+All documentation in: PROJECT.md
+
+================================================================================
+                        HAPPY CODING! 🚀
+================================================================================
+
+Questions? Everything is documented in PROJECT.md
+Need help? Check troubleshooting section in PROJECT.md
+Want to learn? Read architecture section in PROJECT.md
+
